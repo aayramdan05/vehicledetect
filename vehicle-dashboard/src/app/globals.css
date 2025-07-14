@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.recharts-legend-item text {
+  color: #000000 !important; /* Fallback untuk kompatibilitas lebih luas */
+}
+
+/* Jika legenda menggunakan <tspan> di dalamnya */
+.recharts-legend-item tspan {
+  fill: #000000 !important;
+  color: #000000 !important;
+}
+
+/* Jika Anda menambahkan className="recharts-legend-text-black" pada komponen Legend */
+/* Pastikan className ini juga diterapkan: */
+.recharts-legend-text-black .recharts-legend-item text,
+.recharts-legend-text-black .recharts-legend-item tspan {
+  fill: #000000 !important;
+  color: #000000 !important;
+}
